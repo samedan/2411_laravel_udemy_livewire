@@ -35,7 +35,7 @@ class UserController extends Controller
             'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => ['required', 'min:8', 'confirmed'],
         ]);
-        $incomingFields['password'] = 
+        $incomingFields['password'] = bcrypt($incomingFields['password']);
         $user = User::create($incomingFields);
         auth()->login($user); // sends the cokkie session value
         return redirect('/')->with('success', 'Thank you for registering.');

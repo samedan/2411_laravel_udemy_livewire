@@ -505,10 +505,18 @@
 > pwd -> root@localhost:/var/www/ourrepos/ourapp -> folder for repoGitFiles
 > Be in -> root@localhost:/var/www/ourrepos/ourapp#
 > git config --global init.defaultBranch main
+
+# Initialized empty Git repository in /var/www/ourrepos2/ourapp2/
+
 > git init --bare
+
+# Files commands for server -> root@localhost:/var/www/ourrepos2/ourapp2/hooks#
 
 > root@localhost:/var/www/ourrepos/ourapp# -> cd hooks
 > ls
+
+# Edit file for post receveing files
+
 > root@localhost:/var/www/ourrepos/ourapp/hooks# -> touch post-receive
 > nano post-receive
 
@@ -522,5 +530,32 @@
 > git remote add production ssh://root@MyIP/var/www/ourrepos/ourapp
 > git push production main
 
-git remote add production ssh://root@MyIP/var/www/ourrepos/ourapp
-git push production main
+## Vendor folder
+
+> composer install
+
+## NGINX config file
+
+> cd /etc/nginx
+> cd sites-available
+
+# Use file vps-nginx.txt
+
+> sites-available -> nano mysite OR nano default
+
+# reload NGINX
+
+> sudo systemctl reload nginx
+
+# DOT ENV -> .env
+
+> cd /var/www/ourapp
+> ls
+> touch .env
+> nano .env
+
+### Create rights for 'storage' folder
+
+> cd /var/www/ourapp
+> chown -R www-data:www-data storage
+> php artisan storage:link
