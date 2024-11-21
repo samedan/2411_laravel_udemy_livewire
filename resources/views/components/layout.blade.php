@@ -32,8 +32,10 @@
           @endif
           
           <livewire:search />
+          <livewire:chat />
           
-          <span class="text-white mr-2 header-chat-icon" title="Chat" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-comment"></i></span>
+          
+          
           
           <a href="/profile/{{auth()->user()->username}}" class="mr-2">
             <img title="My Profile" data-toggle="tooltip" data-placement="bottom" 
@@ -96,13 +98,9 @@
    </footer>
 
 {{-- Chat Messages --}}
-   @auth
-     <div data-username={{auth()->user()->username}} 
-      data-avatar={{auth()->user()->avatar}}
-      id="chat-wrapper" class="chat-wrapper shadow border-top border-left border-right">
-
-     </div>
-   @endauth
+   {{-- @auth
+     
+   @endauth --}}
 {{-- END Chat Messages --}}
 
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

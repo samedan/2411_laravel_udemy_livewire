@@ -10,7 +10,7 @@ if (document.querySelector(".header-search-icon")) {
 
 // Load search only if page contains CHat icon
 if (document.querySelector(".header-chat-icon")) {
-    new Chat();
+    // new Chat();
 }
 
 // Load (profile, followers, following) only if links on Profile

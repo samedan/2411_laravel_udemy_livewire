@@ -8,7 +8,11 @@
         <div class="search-overlay-top shadow-sm">
           <div class="container container--narrow">
             <label for="live-search-field" class="search-overlay-icon"><i class="fas fa-search"></i></label>
-            <input wire:model.live.debounce.750ms="searchTerm" autocomplete="off" type="text" id="live-search-field" class="live-search-field" placeholder="What are you interested in?">
+            
+            <input wire:model.live.debounce.750ms="searchTerm" 
+            x-on:keydown="document.querySelector('.circle-loader').classList.add('circle-loader--visible'); 
+              if(document.querySelector('#no-results')) {document.querySelector('#no-results').style.display='none'}"
+            autocomplete="off" type="text" id="live-search-field" class="live-search-field" placeholder="What are you interested in?">
             {{-- Button CLOSE Overlay --}}
             <span x-on:click="isOpen=false" class="close-live-search"><i class="fas fa-times-circle"></i></span>
           </div>
@@ -18,6 +22,15 @@
           <div class="container container--narrow py-3">
             <div class="circle-loader"></div>
             <div class="live-search-results live-serach-results--visible">
+              {{-- NO Results --}}
+              @if ((count($results) == 0 && $searchTerm !== ""))
+                <p id="no-results" class="alert alert-danger text-center shadow-sm">Sorry, no results found</p>
+              @endif
+              {{-- End NO Results --}}
+
+              @if (count($results) > 0)
+                
+              
 
               <div class="list-group shadow-sm">
                 <div class="list-group-item active"><strong>Search Results</strong> 
@@ -31,11 +44,12 @@
                               postDate.getMonth() + 1
                           }/${postDate.getDate()}/${postDate.getFullYear()}</span>
                   </a>
-                      
                   @endforeach
-            </div>
+             @endif
+          </div>
           </div>
         </div>
       </div>
+    </div>
 </div>
  

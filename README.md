@@ -559,3 +559,5 @@
 > cd /var/www/ourapp
 > chown -R www-data:www-data storage
 > php artisan storage:link
+#   2 4 1 1 _ l a r a v e l _ u d e m y _ l i v e w i r e  
+ 
