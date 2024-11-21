@@ -1,3 +1,7 @@
+### This Git
+
+> https://github.com/samedan/2410_udemy_laravel_revisited
+
 > composer install
 > npm install
 
@@ -471,6 +475,10 @@
 > php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
 > test composer -> composer --version
 
+### ////////////////////////////////////////////////////////
+
+### DATABASE
+
 ## Install mysql
 
 > apt install mysql-server
@@ -559,5 +567,52 @@
 > cd /var/www/ourapp
 > chown -R www-data:www-data storage
 > php artisan storage:link
-#   2 4 1 1 _ l a r a v e l _ u d e m y _ l i v e w i r e  
- 
+
+### Errors Database
+
+> php.ini -> ;extension=pdo_mysql.so
+> sudo service mysql restart
+> sudo systemctl reload nginx
+
+.env
+SCOUT_DRIVER=database
+
+/etc/php/8.1/cli
+
+/etc/php/8.1/fpm/php.ini
+
+/var/www/ourapp/vendor/laravel/framework/src/Illuminate/Database#
+
+# Choose PHP version
+
+> https://zomro.com/blog/faq/436-updatingdowngrading-php-versions-on-ubuntu
+
+### Livewire
+
+## Livewire Search
+
+> php artisan make:livewire search
+
+# Frontend
+
+> /resources/views/livewire/search.blade.php
+
+# Backend
+
+> /app/Livewire/Search.php
+
+## Livewire Chat
+
+> php artisan make:livewire chat
+
+# Frontend
+
+> /resources/views/livewire/chat.blade.php
+
+# Backend
+
+> /app/Livewire/Chat.php
+
+# Chat slides into view
+
+> /livewire/chat.blade.php -> <div class="chat-wrapper--ready"></div>

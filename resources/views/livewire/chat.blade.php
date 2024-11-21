@@ -6,10 +6,22 @@
         id="chat-wrapper" class="chat-wrapper chat-wrapper--ready shadow border-top border-left border-right"
         x-bind:class="isOpen ? 'chat--visible' : '' ">
         <div class="chat-title-bar">Chat <span x-on:click="isOpen = false" class="chat-title-bar-close"><i class="fas fa-times-circle"></i></span></div>
-                <div id="chat" class="chat-log"></div>
+                <div id="chat" class="chat-log">
+                    @if (count($chatLog)>0)
+                            @foreach ($cahtLog as $chat )
+                                @if($chat['selfmessage'] == true)                                
+                            @endforeach
+
+                        
+                    @endif
+                </div>
                 
-                <form id="chatForm" class="chat-form border-top">
-                <input type="text" class="chat-field" id="chatField" placeholder="Type a message…" autocomplete="off">
+                <form 
+                wire:submit="send"
+                id="chatForm" class="chat-form border-top">
+                    <input 
+                    wire:model="textvalue" 
+                    type="text" class="chat-field" id="chatField" placeholder="Type a message…" autocomplete="off">
                 </form>
        </div>
 
