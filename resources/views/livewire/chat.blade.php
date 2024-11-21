@@ -8,8 +8,27 @@
         <div class="chat-title-bar">Chat <span x-on:click="isOpen = false" class="chat-title-bar-close"><i class="fas fa-times-circle"></i></span></div>
                 <div id="chat" class="chat-log">
                     @if (count($chatLog)>0)
-                            @foreach ($cahtLog as $chat )
-                                @if($chat['selfmessage'] == true)                                
+                            @foreach ($chatLog as $chat )
+                                @if($chat['selfmessage'] == true)   
+                                    {{-- My OWN Message   --}}
+                                    <div class="chat-self">
+                                        <div class="chat-message">
+                                        <div class="chat-message-inner">
+                                            {{ $chat['textvalue'] }}
+                                        </div>
+                                        </div>
+                                        <img class="chat-avatar avatar-tiny" src="{{ $chat['avatar'] }}">
+                                    </div>
+                                @else
+                                    {{-- Other people message --}}
+                                    <div class="chat-other">
+                                        <a href="/profile/{{ $chat['username'] }}"><img class="avatar-tiny" src="{{ $chat['username'] }}"></a>
+                                        <div class="chat-message"><div class="chat-message-inner">
+                                          <a href="/profile/{{ $chat['username'] }}"><strong>{{ $chat['username'] }}:</strong></a>
+                                          {{ $chat['textvalue'] }}
+                                        </div></div>
+                                      </div>
+                                @endif
                             @endforeach
 
                         
