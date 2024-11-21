@@ -5,7 +5,7 @@ import Profile from "./profile";
 
 // Load search only if page contains Search icon
 if (document.querySelector(".header-search-icon")) {
-    new Search();
+    // new Search();
 }
 
 // Load search only if page contains CHat icon

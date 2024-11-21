@@ -31,7 +31,8 @@
           <p class="text-white">You are admin</p>
           @endif
           
-          <a href="#" class="text-white mr-2 header-search-icon" title="Search" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-search"></i></a>
+          <livewire:search />
+          
           <span class="text-white mr-2 header-chat-icon" title="Chat" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-comment"></i></span>
           
           <a href="/profile/{{auth()->user()->username}}" class="mr-2">
